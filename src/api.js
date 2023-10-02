@@ -7,9 +7,9 @@ const apiClient = axios.create({
     }
 });
 
-export const getPhoto = async (endpoint) => {
+export const getPhotos = async (endpoint, count = 10) => {
     try {
-        const response = await apiClient.get(endpoint);
+        const response = await apiClient.get(`${endpoint}?count=${count}`);
         return response.data;
     } catch (error) {
         throw error;
