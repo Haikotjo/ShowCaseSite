@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {getPhotos} from "./api";
 import PhotoCard from "./PhotoCard/Photocard";
 
+
 function App() {
     const [photos, setphotos] = useState([])
 
@@ -19,7 +20,6 @@ function App() {
 
   return (
       <div className="container">
-          <h1>hallo</h1>
         <div className="row">
             {photos.map((photo, index) => (
                 <div className="col-md-4" key={index}>
