@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {getPhotos} from "./api";
 import PhotoCard from "./PhotoCard/Photocard";
+import './custom-bootstrap.scss'
+import './App.css'
+
 
 
 function App() {

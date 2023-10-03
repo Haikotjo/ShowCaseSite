@@ -1,6 +1,5 @@
 .card-container {
   height: 200px;
-  //border-radius: 8px;
   overflow: hidden;
   margin: 10px;
 }
@@ -10,3 +9,5 @@
   height: 100%;
   width: 100%;
 }
+
+/*# sourceMappingURL=Photocard.module.css.map */
