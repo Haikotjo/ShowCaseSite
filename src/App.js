@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getPhotos } from "./api";
 import PhotoCard from "./PhotoCard/Photocard";
 import styles from './App.module.scss';
+import TitleComponent from "./Titel/Title";
 
 function App() {
     const [photos, setPhotos] = useState([]);
@@ -19,19 +20,22 @@ function App() {
     }, []);
 
     return (
-        <div className={styles['custom-container']}>
-            {photos.map((photo, index) => (
-                <>
-                    <div className={styles['custom-col']} key={index}>
-                        <PhotoCard photoUrl={photo.urls.small} text={photo.alt_description || 'Geen beschrijving'} />
-                    </div>
-                    {(index + 1) % 3 === 0 && (
-                        <div className={`${styles['custom-col']} ${styles['full-width-card']}`} key={`wide-${index}`}>
-                            <PhotoCard isFullWidth={true} photoUrl={photo.urls.small} text={photo.alt_description || 'Geen beschrijving'} />
+        <div>
+            <TitleComponent />
+            <div className={styles['custom-container']}>
+                {photos.map((photo, index) => (
+                    <>
+                        <div className={styles['custom-col']} key={index}>
+                            <PhotoCard photoUrl={photo.urls.small} text={photo.alt_description || 'Geen beschrijving'} />
                         </div>
-                    )}
-                </>
-            ))}
+                        {(index + 1) % 3 === 0 && (
+                            <div className={`${styles['custom-col']} ${styles['full-width-card']}`} key={`wide-${index}`}>
+                                <PhotoCard isFullWidth={true} photoUrl={photo.urls.small} text={photo.alt_description || 'Geen beschrijving'} />
+                            </div>
+                        )}
+                    </>
+                ))}
+            </div>
         </div>
     );
 }

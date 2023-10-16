@@ -1,11 +1,18 @@
+@import '../Globals.scss';
+
 .custom-card {
   width: 100%; // Neem de volledige breedte van de .custom-col
   height: 100%; // Neem de volledige hoogte van de .custom-col
   display: flex;
   flex-direction: column;
+  border-radius: 10px; // Ronde hoeken voor de kaart
+  background-color: #f5faf9;
+  //border: 0.3px solid $border-color;
+  @include box-shadow;
 }
 
 .custom-card-container {
+  padding: 10px;
   flex-grow: 1;
   overflow: hidden;
   max-height: 200px; // Maximale hoogte voor de afbeeldingscontainer
@@ -15,6 +22,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-top-left-radius: 10px; // Ronde hoeken aan de bovenkant links
+  border-top-right-radius: 10px; // Ronde hoeken aan de bovenkant rechts
 }
 
 .custom-card-body {

@@ -1,0 +1,8 @@
+.animated-title {
+  transition: font-family 0.5s ease-in-out;
+  background: linear-gradient(to right, red, yellow);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/*# sourceMappingURL=Title.module.css.map */

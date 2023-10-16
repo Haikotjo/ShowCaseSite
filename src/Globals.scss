@@ -1,0 +1,7 @@
+// Kleurvariabelen
+$border-color: rgba(5, 255, 255);
+
+// Mixins
+@mixin box-shadow {
+  box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.3);
+}
