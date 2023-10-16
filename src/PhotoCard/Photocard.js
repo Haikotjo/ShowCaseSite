@@ -1,23 +1,26 @@
 import React, { useState } from "react";
-import './Photocard.module.scss'
+import styles from './Photocard.module.scss';
 
-const PhotoCard  = ({ photoUrl, text }) => {
+const PhotoCard = ({ photoUrl, text, isFullWidth }) => {
     const [showMore, setShowMore] = useState(false);
     const shortText = text.split(' ').slice(0, 5).join(' ') + '...';
 
     return (
-        <div className="card d-flex flex-column text-bg-dark p-3 rounded-4" style={{ width: '18rem' }} >
-            <div className="card-container rounded-4" >
-                <img src={photoUrl} className="card-img-top rounded" alt="..."  />
+        <div className={`${styles['custom-card']} ${isFullWidth ? styles['full-width'] : ''}`}>
+            <div className={styles['custom-card-container']}>
+                <img src={photoUrl} className={styles['custom-card-img-top']} alt="..." />
             </div>
-            <div className="card-body flex-grow-1">
-                <p className="card-text">{showMore ? text : shortText}</p>
-                <button className="btn btn-primary" onClick={() => setShowMore(!showMore)}>
-                    {showMore ? 'Minder lezen' : 'Meer lezen'}
-                </button>
+            <div className={styles['custom-card-body']}>
+                <p className={styles['custom-card-text']}>{isFullWidth ? text : (showMore ? text : shortText)}</p>
+                {!isFullWidth && (
+                    <button className={styles['custom-btn']} onClick={() => setShowMore(!showMore)}>
+                        {showMore ? 'Minder lezen' : 'Meer lezen'}
+                    </button>
+                )}
             </div>
         </div>
-    )
+    );
 }
+
 
 export default PhotoCard;

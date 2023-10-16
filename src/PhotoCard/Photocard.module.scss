@@ -1,12 +1,38 @@
-.card-container {
-  height: 200px;
-  //border-radius: 8px;
-  overflow: hidden;
-  margin: 10px;
+.custom-card {
+  width: 100%; // Neem de volledige breedte van de .custom-col
+  height: 100%; // Neem de volledige hoogte van de .custom-col
+  display: flex;
+  flex-direction: column;
 }
 
-.card-img-top {
-  object-fit: cover;
-  height: 100%;
+.custom-card-container {
+  flex-grow: 1;
+  overflow: hidden;
+  max-height: 200px; // Maximale hoogte voor de afbeeldingscontainer
+}
+
+.custom-card-img-top {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.custom-card-body {
+  flex-grow: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // Verticaal centreren
+  align-items: center; // Horizontaal centreren
+}
+
+
+.custom-btn {
+  flex-shrink: 0; // Voorkomt dat de knop kleiner wordt
+}
+
+.full-width {
+  .custom-card-container, .custom-card-body {
+    flex-grow: 1;
+  }
 }

@@ -1,0 +1,9 @@
+.custom-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3 kolommen van gelijke grootte
+  gap: 16px; // Ruimte tussen de kaarten
+  align-items: stretch; // Zorgt ervoor dat alle items zich uitstrekken om de beschikbare ruimte te vullen
+}
+.full-width-card {
+  grid-column: 1 / -1; // Neemt de volledige breedte van de grid
+}
