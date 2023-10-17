@@ -49,43 +49,4 @@ table {
   border-spacing: 0;
 }
 
-body {
-  font-family: "Tilt Neon", sans-serif;
-}
-
-.center-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-.custom-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  align-items: stretch;
-  width: 80%;
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .custom-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 767px) {
-  .custom-container {
-    grid-template-columns: 1fr;
-  }
-}
-@media (max-width: 1199px) {
-  .custom-container {
-    width: 95%;
-  }
-}
-
-.full-width-card {
-  grid-column: 1/-1;
-}
-
-/*# sourceMappingURL=App.module.css.map */
+/*# sourceMappingURL=reset.css.map */

@@ -1,7 +1,50 @@
+@import 'reset';
 // Kleurvariabelen
-$border-color: rgba(5, 255, 255);
+$secondary-color: rgb(255, 0, 183);
+$primary-color: rgb(60, 108, 123);
 
 // Mixins
 @mixin box-shadow {
   box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  font-family: 'Tilt Neon', sans-serif;
+}
+
+// Mixins voor schermgroottes
+@mixin screen-xl {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin screen-lg {
+  @media (min-width: 992px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin screen-md {
+  @media (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin screen-sm {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin screen-below-xl {
+  @media (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin screen-below-md {
+  @media (max-width: 767px) {
+    @content;
+  }
 }

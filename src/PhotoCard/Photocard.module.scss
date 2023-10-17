@@ -7,15 +7,27 @@
   flex-direction: column;
   border-radius: 10px; // Ronde hoeken voor de kaart
   background-color: #f5faf9;
-  //border: 0.3px solid $border-color;
+color: $primary-color;
   @include box-shadow;
+  &:hover{
+    border: 2px solid $secondary-color;
+  }
 }
 
 .custom-card-container {
   padding: 10px;
+  margin: 10px;
   flex-grow: 1;
   overflow: hidden;
   max-height: 200px; // Maximale hoogte voor de afbeeldingscontainer
+  transition: box-shadow 0.3s ease-in-out;
+  &:hover {
+    @include box-shadow;// Dropshadow bij hover
+  }
+  @media (max-width: 1199px) {
+    padding: 5px;
+    margin: 5px ;
+  }
 }
 
 .custom-card-img-top {
@@ -24,6 +36,9 @@
   object-fit: cover;
   border-top-left-radius: 10px; // Ronde hoeken aan de bovenkant links
   border-top-right-radius: 10px; // Ronde hoeken aan de bovenkant rechts
+  &:hover {
+    cursor: pointer; // Verandert de cursor in een pointer bij hover
+  }
 }
 
 .custom-card-body {
@@ -45,3 +60,51 @@
     flex-grow: 1;
   }
 }
+
+.clickable-ellipsis {
+  cursor: pointer;
+  color: $secondary-color;
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.modal {
+  display: flex;
+  justify-content: center; // Horizontaal centreren
+  align-items: center; // Verticaal centreren
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  width: 80vw; // 80% van de viewport breedte
+  height: 80vh; // 80% van de viewport hoogte
+  background-color: rgba(255, 255, 255, 0.78);
+  border-radius: 10px;
+  overflow: auto; // voor het geval de inhoud groter is dan de modal
+}
+
+.modal-content img {
+  width: 100%;
+  border-radius: 10px; // Ronde hoeken voor de afbeelding
+}
+
+.custom-card-text {
+  padding: 10px;
+  margin-bottom: 20px;
+  @media (max-width: 1199px) {
+   font-size: smaller;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+}
+
