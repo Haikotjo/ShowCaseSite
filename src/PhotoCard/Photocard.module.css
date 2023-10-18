@@ -60,7 +60,7 @@ body {
   flex-direction: column;
   border-radius: 10px;
   background-color: #f5faf9;
-  color: rgb(60, 108, 123);
+  color: rgb(67, 119, 135);
   box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.3);
 }
 .custom-card:hover {
@@ -118,7 +118,21 @@ body {
   color: rgb(255, 0, 183);
 }
 .clickable-ellipsis:hover {
-  color: rgb(60, 108, 123);
+  color: rgb(67, 119, 135);
+}
+
+.custom-card-text {
+  padding: 10px;
+  margin-bottom: 20px;
+  overflow-y: auto;
+  max-height: 10vh;
+}
+@media (max-width: 1199px) {
+  .custom-card-text {
+    font-size: smaller;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
 }
 
 .modal {
@@ -135,31 +149,32 @@ body {
 }
 
 .modal-content {
+  display: flex;
+  flex-direction: column;
   position: relative;
   margin: auto;
   padding: 20px;
   width: 80vw;
   height: 80vh;
-  background-color: rgba(255, 255, 255, 0.78);
-  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
   overflow: auto;
+  border: 2px solid rgb(255, 0, 183);
 }
 
 .modal-content img {
-  width: 100%;
-  border-radius: 10px;
+  max-height: 65vh;
+  border-radius: 20px;
+  margin-top: 2rem;
 }
 
-.custom-card-text {
-  padding: 10px;
-  margin-bottom: 20px;
-}
-@media (max-width: 1199px) {
-  .custom-card-text {
-    font-size: smaller;
-    padding: 5px;
-    margin-bottom: 10px;
-  }
+.modal-text {
+  text-align: center;
+  font-size: 1.8em;
+  max-width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  color: rgb(67, 119, 135);
 }
 
 /*# sourceMappingURL=Photocard.module.css.map */

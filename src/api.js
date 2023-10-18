@@ -15,3 +15,13 @@ export const getPhotos = async (endpoint, count = 10) => {
         throw error;
     }
 };
+
+export const getTopics = async () => {
+    try {
+        const response = await apiClient.get('topics');
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};
+

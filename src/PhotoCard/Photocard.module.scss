@@ -69,6 +69,18 @@ color: $primary-color;
   }
 }
 
+.custom-card-text {
+  padding: 10px;
+  margin-bottom: 20px;
+  overflow-y: auto; // Scroll toevoegen als de tekst te lang is
+  max-height: 10vh; // Maximale hoogte instellen
+  @media (max-width: 1199px) {
+    font-size: smaller;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+}
+
 .modal {
   display: flex;
   justify-content: center; // Horizontaal centreren
@@ -83,28 +95,35 @@ color: $primary-color;
 }
 
 .modal-content {
+  display: flex;
+  flex-direction: column;
   position: relative;
   margin: auto;
   padding: 20px;
   width: 80vw; // 80% van de viewport breedte
   height: 80vh; // 80% van de viewport hoogte
-  background-color: rgba(255, 255, 255, 0.78);
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255);
+  border-radius: 20px;
   overflow: auto; // voor het geval de inhoud groter is dan de modal
+  border: 2px solid $secondary-color;
 }
 
 .modal-content img {
-  width: 100%;
-  border-radius: 10px; // Ronde hoeken voor de afbeelding
+  max-height: 65vh;
+  border-radius: 20px; // Ronde hoeken voor de afbeelding
+  margin-top: 2rem;
 }
 
-.custom-card-text {
-  padding: 10px;
-  margin-bottom: 20px;
-  @media (max-width: 1199px) {
-   font-size: smaller;
-    padding: 5px;
-    margin-bottom: 10px;
-  }
+.modal-text {
+  text-align: center; // Centreert de tekst horizontaal
+  font-size: 1.8em; // Vergroot de tekstgrootte
+  max-width: 100%; // Maximale breedte is de breedte van de modal-content
+  margin-top: 3rem ;
+  margin-bottom: 2rem ;
+  color: $primary-color;
 }
+
+
+
+
 

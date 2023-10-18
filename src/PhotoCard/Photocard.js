@@ -23,7 +23,7 @@ const PhotoCard = ({ photoUrl, text, isFullWidth }) => {
                 <div className={styles['modal']} onClick={() => setShowModal(false)}>
                     <div className={styles['modal-content']}>
                         <img src={photoUrl} alt="..." />
-                        <p>{text}</p>
+                        <p className={styles['modal-text']} >{text}</p>
                     </div>
                 </div>
             )}
