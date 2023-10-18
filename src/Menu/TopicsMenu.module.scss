@@ -1,1 +1,72 @@
 @import '../Globals.scss';
+
+.menu-container {
+  display: flex;
+  justify-content: center; // Dit centreert de items horizontaal
+  width: 100%;
+  background-color: $primary-color;
+  position: relative;
+  box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.8); // Voegt een dropshadow toe
+}
+
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 15px;
+  div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 2px 0;
+  }
+
+  @include screen-sm {
+    display: flex;
+  }
+}
+
+.menu-list {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: $primary-color;
+  }
+
+  @include screen-sm {
+    display: none;
+
+    &.open {
+      display: flex;
+    }
+  }
+}
+
+.menu-item {
+  color: white;
+  cursor: pointer;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  @include screen-below-xl {
+    font-size: smaller;
+    padding: 15px;
+  }
+}

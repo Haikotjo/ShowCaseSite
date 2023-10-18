@@ -57,7 +57,12 @@ function App() {
                                 (index + 1) % 4 === 0;
                         return (
                             <div className={`${styles['custom-col']} ${isFullWidth ? styles['full-width-card'] : ''}`} key={index}>
-                                <PhotoCard isFullWidth={isFullWidth} photoUrl={photo.urls.small} text={photo.alt_description || 'Geen beschrijving'} />
+                                <PhotoCard
+                                    isFullWidth={isFullWidth}
+                                    photoUrl={photo.urls.small}
+                                    largePhotoUrl={photo.urls.full}
+                                    text={photo.alt_description || 'Geen beschrijving'}
+                                />
                             </div>
                         );
                     })}

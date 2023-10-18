@@ -9,6 +9,7 @@
 }
 
 .custom-container {
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr); // 3 kolommen van gelijke grootte
   gap: 16px; // Ruimte tussen de kaarten

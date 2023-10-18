@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from './Photocard.module.scss';
 
-const PhotoCard = ({ photoUrl, text, isFullWidth }) => {
+const PhotoCard = ({ photoUrl, largePhotoUrl, text, isFullWidth }) => {
     const [showMore, setShowMore] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const shortText = text.split(' ').slice(0, 5).join(' ');
@@ -22,7 +22,7 @@ const PhotoCard = ({ photoUrl, text, isFullWidth }) => {
             {showModal && (
                 <div className={styles['modal']} onClick={() => setShowModal(false)}>
                     <div className={styles['modal-content']}>
-                        <img src={photoUrl} alt="..." />
+                        <img src={largePhotoUrl} alt="..." />  {/* Hier gebruik je de grote afbeelding */}
                         <p className={styles['modal-text']} >{text}</p>
                     </div>
                 </div>
@@ -30,6 +30,7 @@ const PhotoCard = ({ photoUrl, text, isFullWidth }) => {
         </div>
     );
 };
+
 
 
 export default PhotoCard;
