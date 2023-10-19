@@ -1,5 +1,7 @@
+// PhotoCard.js
 import React, { useState } from "react";
 import styles from './Photocard.module.scss';
+import InstagramModal from '../Component/Modal/Modal'; // Importeer het InstagramModal component
 
 const PhotoCard = ({ photoUrl, largePhotoUrl, text, isFullWidth }) => {
     const [showMore, setShowMore] = useState(false);
@@ -19,18 +21,14 @@ const PhotoCard = ({ photoUrl, largePhotoUrl, text, isFullWidth }) => {
                     )}
                 </p>
             </div>
-            {showModal && (
-                <div className={styles['modal']} onClick={() => setShowModal(false)}>
-                    <div className={styles['modal-content']}>
-                        <img src={largePhotoUrl} alt="..." />  {/* Hier gebruik je de grote afbeelding */}
-                        <p className={styles['modal-text']} >{text}</p>
-                    </div>
-                </div>
-            )}
+            <InstagramModal
+                isOpen={showModal}
+                closeModal={() => setShowModal(false)}
+                largePhotoUrl={largePhotoUrl}
+                text={text}
+            />
         </div>
     );
 };
-
-
 
 export default PhotoCard;

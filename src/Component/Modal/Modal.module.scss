@@ -1,0 +1,58 @@
+@import '../../Globals.scss';
+
+.modal {
+  @include screen-lg {
+    // Aanpassingen voor grote schermen
+  }
+  @include screen-md {
+    // Aanpassingen voor middelgrote schermen
+  }
+  @include screen-sm {
+    // Aanpassingen voor kleine schermen
+  }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  @include box-shadow; // Gebruik van de box-shadow mixin
+
+  @include screen-lg {
+    max-width: 600px;
+  }
+  @include screen-md {
+    max-width: 500px;
+  }
+  @include screen-sm {
+    max-width: 90%;
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  img {
+    max-width: 100%;
+    border-radius: 5px;
+  }
+
+  .modal-text {
+    margin-top: 15px;
+    text-align: center;
+  }
+}
