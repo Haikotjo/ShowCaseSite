@@ -57,7 +57,7 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: rgb(2, 21, 33);
+  background-color: rgb(16, 17, 25);
   position: relative;
   box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.8);
 }
@@ -95,7 +95,7 @@ body {
   top: 100%;
   left: 0;
   right: 0;
-  background-color: rgb(2, 21, 33);
+  background-color: rgb(16, 17, 25);
 }
 @media (max-width: 767px) {
   .menu-list {
@@ -121,6 +121,11 @@ body {
     font-size: smaller;
     padding: 15px;
   }
+}
+
+.active {
+  background-color: #f0f0f0;
+  color: rgb(243, 63, 117);
 }
 
 /*# sourceMappingURL=TopicsMenu.module.css.map */

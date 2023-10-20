@@ -24,7 +24,7 @@
 }
 
 .modal-content {
-  @include box-shadow; // Gebruik van de box-shadow mixin
+  @include box-shadow;
 
   @include screen-lg {
     max-width: 600px;

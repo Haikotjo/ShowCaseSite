@@ -6,9 +6,9 @@ export const fetchRandomTopics = async () => {
 };
 
 export const fetchData = async (currentTopic, pageNumber) => {
-    if (!currentTopic) return null; // Wacht tot er een currentTopic is
+    if (!currentTopic) return null;
     const endpoint = `topics/${currentTopic.id}/photos`;
-    const photoData = await getPhotos(endpoint, 16, pageNumber); // Voeg paginanummer toe als parameter
+    const photoData = await getPhotos(endpoint, 16, pageNumber);
     return photoData;
 };
 
@@ -21,7 +21,7 @@ export const handleResize = (setWindowWidth) => {
 export const handleScroll = (lastScrollTime, setPageNumber, setLastScrollTime) => {
     return () => {
         const currentTime = Date.now();
-        if (currentTime - lastScrollTime < 5000) return; // 5 seconden debounce
+        if (currentTime - lastScrollTime < 5000) return;
 
         if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight) {
             setPageNumber(prevPageNumber => prevPageNumber + 1);

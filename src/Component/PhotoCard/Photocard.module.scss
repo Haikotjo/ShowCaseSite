@@ -1,11 +1,11 @@
-@import '../Globals.scss';
+@import '../../Globals';
 
 .custom-card {
-  width: 100%; // Neem de volledige breedte van de .custom-col
-  height: 100%; // Neem de volledige hoogte van de .custom-col
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  border-radius: 10px; // Ronde hoeken voor de kaart
+  border-radius: 10px;
   background-color: #f5faf9;
 color: $primary-color;
   @include box-shadow;
@@ -19,10 +19,10 @@ color: $primary-color;
   margin: 10px;
   flex-grow: 1;
   overflow: hidden;
-  max-height: 200px; // Maximale hoogte voor de afbeeldingscontainer
+  max-height: 200px;
   transition: box-shadow 0.3s ease-in-out;
   &:hover {
-    @include box-shadow;// Dropshadow bij hover
+    @include box-shadow;
   }
   @media (max-width: 1199px) {
     padding: 5px;
@@ -34,10 +34,10 @@ color: $primary-color;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-top-left-radius: 10px; // Ronde hoeken aan de bovenkant links
-  border-top-right-radius: 10px; // Ronde hoeken aan de bovenkant rechts
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   &:hover {
-    cursor: pointer; // Verandert de cursor in een pointer bij hover
+    cursor: pointer;
   }
 }
 
@@ -46,13 +46,13 @@ color: $primary-color;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center; // Verticaal centreren
-  align-items: center; // Horizontaal centreren
+  justify-content: center;
+  align-items: center;
 }
 
 
 .custom-btn {
-  flex-shrink: 0; // Voorkomt dat de knop kleiner wordt
+  flex-shrink: 0;
 }
 
 .full-width {
@@ -72,8 +72,8 @@ color: $primary-color;
 .custom-card-text {
   padding: 10px;
   margin-bottom: 20px;
-  overflow-y: auto; // Scroll toevoegen als de tekst te lang is
-  max-height: 10vh; // Maximale hoogte instellen
+  overflow-y: auto;
+  max-height: 10vh;
   @media (max-width: 1199px) {
     font-size: smaller;
     padding: 5px;
@@ -83,8 +83,8 @@ color: $primary-color;
 
 .modal {
   display: flex;
-  justify-content: center; // Horizontaal centreren
-  align-items: center; // Verticaal centreren
+  justify-content: center;
+  align-items: center;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -101,32 +101,32 @@ color: $primary-color;
   margin: auto;
   padding: 20px;
   max-width: 1440px;
-  width: 80vw; // 80% van de viewport breedte
-  height: 80vh; // 80% van de viewport hoogte
+  width: 80vw;
+  height: 80vh;
   background-color: rgba(255, 255, 255);
   border-radius: 20px;
-  overflow: auto; // voor het geval de inhoud groter is dan de modal
+  overflow: auto;
   border: 2px solid $secondary-color;
 }
 
 .modal-content img {
   max-height: 65vh;
-  border-radius: 20px; // Ronde hoeken voor de afbeelding
+  border-radius: 20px;
   margin-top: 2rem;
 }
 
 .modal-text {
-  text-align: center; // Centreert de tekst horizontaal
-  font-size: 1.8em; // Vergroot de tekstgrootte
-  max-width: 100%; // Maximale breedte is de breedte van de modal-content
+  text-align: center;
+  font-size: 1.8em;
+  max-width: 100%;
   margin-top: 3rem ;
   margin-bottom: 2rem ;
   color: $primary-color;
 }
 
 .spinner-icon {
-  font-size: 4em; // Verander de grootte
-  color: blue; // Verander de kleur
+  font-size: 4em;
+  color: blue;
 }
 
 

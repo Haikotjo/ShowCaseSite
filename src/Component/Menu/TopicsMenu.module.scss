@@ -1,12 +1,12 @@
-@import '../Globals.scss';
+@import '../../Globals';
 
 .menu-container {
   display: flex;
-  justify-content: center; // Dit centreert de items horizontaal
+  justify-content: center;
   width: 100%;
   background-color: $primary-color;
   position: relative;
-  box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.8); // Voegt een dropshadow toe
+  box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.8);
 }
 
 
@@ -70,3 +70,9 @@
     padding: 15px;
   }
 }
+
+.active {
+  background-color: #f0f0f0;
+  color: $secondary-color;
+}
+

@@ -11,17 +11,17 @@
 .custom-container {
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr); // 3 kolommen van gelijke grootte
-  gap: 16px; // Ruimte tussen de kaarten
-  align-items: stretch; // Zorgt ervoor dat alle items zich uitstrekken om de beschikbare ruimte te vullen
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: stretch;
   width: 80%;
 
   @include screen-md {
-    grid-template-columns: repeat(2, 1fr); // 2 kolommen van gelijke grootte voor medium schermen
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @include screen-sm {
-    grid-template-columns: 1fr; // 1 kolom voor kleine schermen
+    grid-template-columns: 1fr;
   }
 
   @include screen-below-xl {
@@ -30,7 +30,7 @@
 }
 
 .full-width-card {
-  grid-column: 1 / -1; // Neemt de volledige breedte van de grid
+  grid-column: 1 / -1;
 }
 
 .topic-title {
@@ -38,7 +38,7 @@
   margin-bottom: 10px;
   text-align: center;
   text-transform: uppercase;
-  font-size: 3rem; // Of een andere grootte naar keuze
+  font-size: 3rem;
   color: $primary-color;
   @include screen-below-md {
     font-size: 2rem;

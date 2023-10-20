@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import PhotoCard from "./PhotoCard/Photocard";
+import PhotoCard from "./Component/PhotoCard/Photocard";
 import styles from './App.module.scss';
-import TopicsMenu from "./Menu/TopicsMenu";
+import TopicsMenu from "./Component/Menu/TopicsMenu";
 import {fetchData, fetchRandomTopics, handleResize, handleScroll} from "./Utils/utils";
+import Footer from "./Component/Footer/Footer";
 
 function App() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [photos, setPhotos] = useState([]);
     const [currentTopic, setCurrentTopic] = useState(null);
-    const [pageNumber, setPageNumber] = useState(1); // Nieuwe state voor paginanummer
+    const [pageNumber, setPageNumber] = useState(1);
     const [lastScrollTime, setLastScrollTime] = useState(0);
 
-    // Haal willekeurig topic op bij eerste render
     useEffect(() => {
         const fetchData = async () => {
             const randomTopic = await fetchRandomTopics();
@@ -82,6 +82,7 @@ function App() {
                     })}
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

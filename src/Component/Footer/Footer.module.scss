@@ -1,0 +1,43 @@
+@import '../../Globals';
+
+.footer {
+  background-color: $primary-color;
+  color: white;
+  padding: 0.8rem;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .container {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+
+    p {
+      margin: 0;
+      font-size: 0.8rem;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+
+      a {
+        margin: 0 1rem;
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+
+        &:hover {
+          color: #ccc;
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 // PhotoCard.js
 import React, { useState } from "react";
 import styles from './Photocard.module.scss';
-import InstagramModal from '../Component/Modal/Modal'; // Importeer het InstagramModal component
+import InstagramModal from '../Modal/Modal';
 
 const PhotoCard = ({ photoUrl, largePhotoUrl, text, isFullWidth }) => {
     const [showMore, setShowMore] = useState(false);

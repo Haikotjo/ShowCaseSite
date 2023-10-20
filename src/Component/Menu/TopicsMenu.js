@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { getTopics } from '../api';
-import styles from './TopicsMenu.module.scss'; // Vergeet niet om je SCSS-bestand te importeren
+import { getTopics } from '../../api';
+import styles from './TopicsMenu.module.scss';
 
 const TopicsMenu = ({ onSelectTopic }) => {
     const [topics, setTopics] = useState([]);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+    const [activeTopic, setActiveTopic] = useState(null);
 
     useEffect(() => {
         const fetchTopics = async () => {
@@ -29,11 +29,12 @@ const TopicsMenu = ({ onSelectTopic }) => {
             <ul className={`${styles['menu-list']} ${isDropdownOpen ? styles['open'] : ''}`}>
                 {topics.map((topic) => (
                     <li
-                        className={styles['menu-item']}
+                        className={`${styles['menu-item']} ${activeTopic === topic.id ? styles['active'] : ''}`}
                         key={topic.id}
                         onClick={() => {
                             onSelectTopic(topic);
-                            setIsDropdownOpen(false);  // Dit sluit het menu
+                            setActiveTopic(topic.id);
+                            setIsDropdownOpen(false);
                         }}
                     >
                         {topic.title}
@@ -42,7 +43,6 @@ const TopicsMenu = ({ onSelectTopic }) => {
             </ul>
         </div>
     );
-
 };
 
 export default TopicsMenu;
