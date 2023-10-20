@@ -1,31 +1,39 @@
 import React, { useEffect, useState } from 'react';
-import { getPhotos } from "./api";
+import {getPhotos, getTopics} from "./api";
 import PhotoCard from "./PhotoCard/Photocard";
 import styles from './App.module.scss';
-import TitleComponent from "./Titel/Title";
 import TopicsMenu from "./Menu/TopicsMenu";
 
 function App() {
-    const [photos, setPhotos] = useState([]);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [photos, setPhotos] = useState([]);
     const [currentTopic, setCurrentTopic] = useState(null);
+    const [pageNumber, setPageNumber] = useState(1); // Nieuwe state voor paginanummer
 
+    // Haal willekeurig topic op bij eerste render
+    useEffect(() => {
+        const fetchRandomTopic = async () => {
+            const topics = await getTopics();
+            const randomTopic = topics[Math.floor(Math.random() * topics.length)];
+            setCurrentTopic(randomTopic);
+        };
+        fetchRandomTopic();
+    }, []);
 
+    // Haal foto's op
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                let endpoint = 'photos/random';
-                if (currentTopic) {
-                    endpoint = `topics/${currentTopic.id}/photos`;
-                }
-                const photoData = await getPhotos(endpoint, 16);
+            if (!currentTopic) return; // Wacht tot er een currentTopic is
+            const endpoint = `topics/${currentTopic.id}/photos`;
+            const photoData = await getPhotos(endpoint, 16, pageNumber); // Voeg paginanummer toe als parameter
+            if (pageNumber === 1) {
                 setPhotos(photoData);
-            } catch (error) {
-                console.log('Er ging iets mis: ', error);
+            } else {
+                setPhotos(prevPhotos => [...prevPhotos, ...photoData]);
             }
         };
         fetchData();
-    }, [currentTopic]);
+    }, [currentTopic, pageNumber]);
 
 
     useEffect(() => {
@@ -47,8 +55,7 @@ function App() {
     return (
         <div>
             <TopicsMenu onSelectTopic={handleSelectTopic} />
-
-            {/*<TitleComponent />*/}
+            <h1 className={styles['topic-title']}>{currentTopic ? currentTopic.title : 'Loading...'}</h1>
             <div className={styles['center-container']}>
                 <div className={styles['custom-container']}>
                     {photos.map((photo, index) => {

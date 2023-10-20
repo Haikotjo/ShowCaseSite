@@ -9,7 +9,7 @@
 }
 
 .custom-container {
-  margin-top: 30px;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr); // 3 kolommen van gelijke grootte
   gap: 16px; // Ruimte tussen de kaarten
@@ -31,5 +31,17 @@
 
 .full-width-card {
   grid-column: 1 / -1; // Neemt de volledige breedte van de grid
+}
+
+.topic-title {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3rem; // Of een andere grootte naar keuze
+  color: $primary-color;
+  @include screen-below-md {
+    font-size: 2rem;
+  }
 }
 
