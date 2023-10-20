@@ -1,52 +1,57 @@
 import React, { useEffect, useState } from 'react';
-import {getPhotos, getTopics} from "./api";
 import PhotoCard from "./PhotoCard/Photocard";
 import styles from './App.module.scss';
 import TopicsMenu from "./Menu/TopicsMenu";
+import {fetchData, fetchRandomTopics, handleResize, handleScroll} from "./Utils/utils";
 
 function App() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [photos, setPhotos] = useState([]);
     const [currentTopic, setCurrentTopic] = useState(null);
     const [pageNumber, setPageNumber] = useState(1); // Nieuwe state voor paginanummer
+    const [lastScrollTime, setLastScrollTime] = useState(0);
 
     // Haal willekeurig topic op bij eerste render
     useEffect(() => {
-        const fetchRandomTopic = async () => {
-            const topics = await getTopics();
-            const randomTopic = topics[Math.floor(Math.random() * topics.length)];
+        const fetchData = async () => {
+            const randomTopic = await fetchRandomTopics();
             setCurrentTopic(randomTopic);
         };
-        fetchRandomTopic();
+        fetchData();
     }, []);
+
 
     // Haal foto's op
     useEffect(() => {
-        const fetchData = async () => {
-            if (!currentTopic) return; // Wacht tot er een currentTopic is
-            const endpoint = `topics/${currentTopic.id}/photos`;
-            const photoData = await getPhotos(endpoint, 16, pageNumber); // Voeg paginanummer toe als parameter
+        const fetchPhotos = async () => {
+            const photoData = await fetchData(currentTopic, pageNumber);
             if (pageNumber === 1) {
                 setPhotos(photoData);
             } else {
                 setPhotos(prevPhotos => [...prevPhotos, ...photoData]);
             }
         };
-        fetchData();
+        fetchPhotos();
     }, [currentTopic, pageNumber]);
 
 
     useEffect(() => {
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-        };
-
-        window.addEventListener('resize', handleResize);
+        const resizeHandler = handleResize(setWindowWidth);
+        window.addEventListener('resize', resizeHandler);
 
         return () => {
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', resizeHandler);
         };
     }, []);
+
+    useEffect(() => {
+        const scrollHandler = handleScroll(lastScrollTime, setPageNumber, setLastScrollTime);
+        window.addEventListener('scroll', scrollHandler);
+
+        return () => {
+            window.removeEventListener('scroll', scrollHandler);
+        };
+    }, [lastScrollTime]);
 
     const handleSelectTopic = (selectedTopic) => {
         setCurrentTopic(selectedTopic);
@@ -55,10 +60,12 @@ function App() {
     return (
         <div>
             <TopicsMenu onSelectTopic={handleSelectTopic} />
-            <h1 className={styles['topic-title']}>{currentTopic ? currentTopic.title : 'Loading...'}</h1>
+            <h1 className={styles['topic-title']}>
+                {currentTopic ? currentTopic.title : 'Loading...'}
+            </h1>
             <div className={styles['center-container']}>
                 <div className={styles['custom-container']}>
-                    {photos.map((photo, index) => {
+                    {photos && photos.map((photo, index) => {
                         const isFullWidth = windowWidth <= 767 ? true :
                             windowWidth <= 991 ? (index + 1) % 3 === 0 :
                                 (index + 1) % 4 === 0;

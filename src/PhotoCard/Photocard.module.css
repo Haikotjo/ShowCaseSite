@@ -178,4 +178,9 @@ body {
   color: rgb(2, 21, 33);
 }
 
+.spinner-icon {
+  font-size: 4em;
+  color: blue;
+}
+
 /*# sourceMappingURL=Photocard.module.css.map */
